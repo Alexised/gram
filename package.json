@@ -1,0 +1,23 @@
+{
+  "name": "gram",
+  "version": "0.1.0",
+  "description": "app fotos",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zekken25/gram.git"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "author": "alexis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zekken25/gram/issues"
+  },
+  "homepage": "https://github.com/zekken25/gram#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "save": "^2.3.3"
+  }
+}
