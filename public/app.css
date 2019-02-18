@@ -40,3 +40,17 @@ body {
     color: #a5a7aa;
     font-size: 1.2em;
 }
+
+.signup-form .btn.btn-fb {
+    background-color: #4090db;
+    font-size: .9em;
+
+}
+.signup-form .btn.btn-fb:hover {
+    background-color: #2d6599;
+
+}
+
+.signup-form .btn.btn-signup{
+    background-color:#125688;
+}
