@@ -19,10 +19,11 @@
   "dependencies": {
     "express": "^4.16.4",
     "materialize-css": "^1.0.0",
-    "save": "^2.3.3"  
+    "save": "^2.3.3"
   },
-    "devDependencies": {
-      "gulp": "^4.0.0",
-      "gulp-sass": "^4.0.2"
-    }
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2"
   }
+}
