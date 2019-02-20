@@ -18,6 +18,11 @@
   "homepage": "https://github.com/zekken25/gram#readme",
   "dependencies": {
     "express": "^4.16.4",
-    "save": "^2.3.3"
+    "materialize-css": "^1.0.0",
+    "save": "^2.3.3"  
+  },
+    "devDependencies": {
+      "gulp": "^4.0.0",
+      "gulp-sass": "^4.0.2"
+    }
   }
-}
