@@ -33,6 +33,11 @@
     "gulp-babel": "^8.0.0",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
-    "vinyl-source-stream": "^2.0.0"
+    "vinyl-source-stream": "^2.0.0",
+    "watchify": "^3.11.1"
+  },
+  "scripts": {
+    "build": "gulp",
+    "start": "gulp watch | node server.js"
   }
 }
