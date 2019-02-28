@@ -8,7 +8,7 @@ var sigupForm= yo`<div class="col s12 m7">
             <h2>Registrate</h2>
             <div class="section">
                 <a class="btn btn-fb hide-on-small-only">Iniciar sesión con facebook</a>
-                <a class="btn btn-fb hide-on-med-and-up">Iniciar sesión</a>
+                <a class="btn btn-fb hide-on-med-and-up"><i class="fab fa-facebook"></i>Iniciar sesión</a>
             </div>
             <div class="divider"></div>
             <div class="section">
