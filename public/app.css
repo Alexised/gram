@@ -6548,8 +6548,8 @@ body {
   padding: 10px 0;
   text-align: center; }
 
-.signup-box .plazigram {
-  font-family: 'Oleo Script';
+.plazigram {
+  font-family: 'Oleo Script' !important;
   font-size: 42px; }
 
 .signup-form {
