@@ -3009,7 +3009,24 @@ var title = require('title');
 page('/', function (ctx, next) {
   title('Gram');
   var main = document.getElementById('main-container');
-  empty(main).appendChild(template);
+  var pictures = [{
+    user: {
+      username: 'alexis',
+      avatar: 'https://avatars2.githubusercontent.com/u/15174727?s=460&v=4'
+    },
+    url: 'https://materializecss.com/images/office.jpg',
+    likes: 125,
+    liked: true
+  }, {
+    user: {
+      username: 'alexis',
+      avatar: 'https://avatars2.githubusercontent.com/u/15174727?s=460&v=4'
+    },
+    url: 'https://materializecss.com/images/office.jpg',
+    likes: 125,
+    liked: true
+  }];
+  empty(main).appendChild(template(pictures));
 });
 
 },{"./template":19,"empty-element":3,"page":11,"title":13}],19:[function(require,module,exports){
@@ -3017,16 +3034,22 @@ var yo = require('yo-yo');
 
 var layout = require("../layout");
 
-var template = yo`<div class="container timeline">
-  <div class="row">
-    <div class="col s12 m10 offset-m1 l6 offset-l3">
-      content
-    </div>
-  </div>
-</div>`;
-module.exports = layout(template);
+var picture = require("../picture-card");
 
-},{"../layout":22,"yo-yo":16}],20:[function(require,module,exports){
+module.exports = function (pictures) {
+  var el = yo`<div class="container timeline">
+    <div class="row">
+      <div class="col s12 m10 offset-m1 l6 offset-l3">
+        ${pictures.map(function (pic) {
+    return picture(pic);
+  })}
+      </div>
+    </div>
+  </div>`;
+  return layout(el);
+};
+
+},{"../layout":22,"../picture-card":23,"yo-yo":16}],20:[function(require,module,exports){
 var page = require('page');
 
 require("./homepage");
@@ -3037,7 +3060,7 @@ require("./signin");
 
 page();
 
-},{"./homepage":18,"./signin":23,"./signup":25,"page":11}],21:[function(require,module,exports){
+},{"./homepage":18,"./signin":24,"./signup":26,"page":11}],21:[function(require,module,exports){
 var yo = require('yo-yo');
 
 module.exports = function landing(box) {
@@ -3086,6 +3109,20 @@ module.exports = function layout(content) {
 };
 
 },{"yo-yo":16}],23:[function(require,module,exports){
+var yo = require('yo-yo');
+
+module.exports = function (pic) {
+  return yo`<div class="card">
+  <div class="card-image">
+    <img class="activator" src="https://materializecss.com/images/office.jpg">
+  </div>
+  <div class="card-content">
+    <span class="card-title">Card Title</span>
+  </div>
+</div>`;
+};
+
+},{"yo-yo":16}],24:[function(require,module,exports){
 var page = require('page');
 
 var empty = require("empty-element");
@@ -3100,7 +3137,7 @@ page('/signin', function (ctx, next) {
   empty(main).appendChild(template);
 });
 
-},{"./template":24,"empty-element":3,"page":11,"title":13}],24:[function(require,module,exports){
+},{"./template":25,"empty-element":3,"page":11,"title":13}],25:[function(require,module,exports){
 var yo = require('yo-yo');
 
 var landing = require('../landing');
@@ -3131,7 +3168,7 @@ var signinForm = yo`<div class="col s12 m7">
 </div>`;
 module.exports = landing(signinForm);
 
-},{"../landing":21,"yo-yo":16}],25:[function(require,module,exports){
+},{"../landing":21,"yo-yo":16}],26:[function(require,module,exports){
 var page = require('page');
 
 var empty = require("empty-element");
@@ -3146,7 +3183,7 @@ page('/signup', function (ctx, next) {
   empty(main).appendChild(template);
 });
 
-},{"./template":26,"empty-element":3,"page":11,"title":13}],26:[function(require,module,exports){
+},{"./template":27,"empty-element":3,"page":11,"title":13}],27:[function(require,module,exports){
 var yo = require('yo-yo');
 
 var landing = require('../landing');
