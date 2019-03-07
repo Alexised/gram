@@ -3015,7 +3015,7 @@ page('/', function (ctx, next) {
       avatar: 'https://avatars2.githubusercontent.com/u/15174727?s=460&v=4'
     },
     url: 'https://b3co.com/wp-content/uploads/2017/12/MG_0198-e1533329119250-1400x500.jpg',
-    likes: 125,
+    likes: 10,
     liked: true
   }, {
     user: {
@@ -3023,7 +3023,7 @@ page('/', function (ctx, next) {
       avatar: 'https://avatars2.githubusercontent.com/u/15174727?s=460&v=4'
     },
     url: 'https://b3co.com/wp-content/uploads/2018/08/dji_1752-e1533323843543-1400x500.jpg',
-    likes: 125,
+    likes: 1,
     liked: true
   }];
   empty(main).appendChild(template(pictures));
@@ -3111,23 +3111,39 @@ module.exports = function layout(content) {
 },{"yo-yo":16}],23:[function(require,module,exports){
 var yo = require('yo-yo');
 
-module.exports = function (pic) {
-  return yo`<div class="card">
+module.exports = function picturecard(pic) {
+  var el;
+
+  function render(picture) {
+    return yo`<div class="card ${picture.liked ? 'liked' : ''}">
   <div class="card-image">
-    <img class="activator" src="${pic.url}">
+    <img class="activator" src="${picture.url}">
   </div>
   <div class="card-content">
-    <a href="/user/${pic.user.username}" class="card-title">Card Title>
-    <img src="${pic.user.avatar}" class="avatar"/>
-    <spam class="username">${pic.user.username}</spam>
+    <a href="/user/${picture.user.username}" class="card-title">Card Title>
+    <img src="${picture.user.avatar}" class="avatar"/>
+    <spam class="username">${picture.user.username}</spam>
     </a>
     <small class="right time">Hace 1 dia</small>
     <p>
-      <a class="left" href="#"></a>
+      <a class="left" href="#" onclick=${like.bind(null, true)}><i class="fa fa-heart-o" arian-hidden="true"></i></a>
+      <a class="left" href="#" onclick=${like.bind(null, false)}><i class="fa fa-heart" arian-hidden="true"></i></a>
+      <span class="left likes">${picture.likes} me gusta</span>
     </p>
   </div>
- 
 </div>`;
+  }
+
+  function like(liked) {
+    pic.liked = liked;
+    pic.likes += liked ? 1 : -1;
+    var newEL = render(pic);
+    yo.update(el, newEL);
+    return false;
+  }
+
+  el = render(pic);
+  return el;
 };
 
 },{"yo-yo":16}],24:[function(require,module,exports){
