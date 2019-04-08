@@ -13,14 +13,16 @@ page('/', function (ctx, next) {
        },
        url:'https://b3co.com/wp-content/uploads/2017/12/MG_0198-e1533329119250-1400x500.jpg',
        likes:10,
-       liked:true    
+       liked:true,
+       createdAT: new Date()   
        },   { user:{
         username:'alexis',
         avatar:'https://avatars2.githubusercontent.com/u/15174727?s=460&v=4'
     },
     url:'https://b3co.com/wp-content/uploads/2018/08/dji_1752-e1533323843543-1400x500.jpg',
     likes:1,
-    liked:true    
+    liked:true,
+    createdAT: new Date().setDate(new Date().getDate() -10 )   
     },
     ];
     empty(main).appendChild(template(pictures));
